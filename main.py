@@ -9,6 +9,12 @@ def congratulate_user():
     print("=============================")
 
 
+def say_if_loser():
+    print("=============================")
+    print("= Unfortunately, you lost. =")
+    print("=============================")
+
+
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
 
@@ -55,6 +61,9 @@ while not is_game_over():
             guesses.append(guess)
             if guessed == WORDS_TO_WIN:
                 congratulate_user()
+                exit()
+            elif WORDS_TO_WIN == 0:
+                say_if_loser()
                 exit()
             print(f"That's right! {WORDS_TO_WIN - guessed} to go")
     else:
